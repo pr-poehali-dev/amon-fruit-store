@@ -439,7 +439,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="grid grid-cols-1 gap-4">
               {[
-                { icon: "Zap", title: "Доставка по Заводоуковску", desc: "Привезём в течение дня. Адрес самовывоза — по звонку", price: "150 ₽" },
+                { icon: "Zap", title: "Доставка по Заводоуковску", desc: "Привезём в течение дня. Адрес самовывоза — по звонку: 8 (902) 813-34-45", price: "150 ₽" },
                 { icon: "Truck", title: "Доставка в Упорово", desc: "Доставка в оговорённый день", price: "250 ₽" },
                 { icon: "Package", title: "Бесплатная доставка", desc: "При заказе от 2 000 ₽", price: "0 ₽" },
                 { icon: "ShoppingBag", title: "Самовывоз", desc: "Упорово, ул. Чивилёва, 1 — заберите сами в удобное время", price: "Бесплатно" },
