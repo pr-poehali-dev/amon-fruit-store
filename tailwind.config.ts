@@ -7,6 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+			"./1777208576188076477.html"
 	],
 	prefix: "",
 	theme: {
@@ -63,6 +64,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+				montserrat: ['Montserrat', 'sans-serif'],
+				caveat: ['Caveat', 'cursive'],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -88,7 +93,12 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-up': 'fadeUp 0.6s ease-out forwards',
+				'fade-in': 'fadeIn 0.5s ease-out forwards',
+				'scale-in': 'scaleIn 0.5s ease-out forwards',
+				'float': 'float 4s ease-in-out infinite',
+				'blob': 'blob 8s ease-in-out infinite',
 			}
 		}
 	},
