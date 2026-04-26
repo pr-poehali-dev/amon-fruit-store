@@ -129,7 +129,7 @@ export default function ReviewsContacts({
               {[
                 { icon: "Phone", label: "Телефон", value: "8 (902) 813-34-45" },
                 { icon: "Mail", label: "Email", value: "amonmahsydjonovrabsis@gmail.com" },
-                { icon: "MapPin", label: "Адрес", value: "Москва, ул. Садовая, 12" },
+                { icon: "MapPin", label: "Адрес", value: "Заводоуковск — Упорово" },
                 { icon: "Clock", label: "Режим работы", value: "Пн–Вс: 8:00 – 22:00" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4 p-5 rounded-2xl bg-orange-50 border-2 border-orange-100">
