@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Preorder notification",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "type": "preorder",
+        "fruit": "Манго Альфонсо",
+        "phone": "+7 999 123-45-67",
+        "email": "test@example.com"
+      },
+      "expectedStatus": 200,
+      "expectedBody": { "ok": true },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Contact notification",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "type": "contact",
+        "name": "Анна",
+        "email": "anna@example.com",
+        "message": "Когда будет клубника?"
+      },
+      "expectedStatus": 200,
+      "expectedBody": { "ok": true },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

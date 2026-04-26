@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
+const API_URL = "https://functions.poehali.dev/be2e714c-e9cd-4477-984c-c6d51fe7cb86";
+
 const HERO_IMG = "https://cdn.poehali.dev/projects/5a477859-d53c-46b0-b684-52e440488a08/files/af7270f1-42c2-439a-99e0-d2332f70126d.jpg";
 const SEASONAL_IMG = "https://cdn.poehali.dev/projects/5a477859-d53c-46b0-b684-52e440488a08/files/051771ba-c2fd-40d2-861d-734b78712da9.jpg";
 const DELIVERY_IMG = "https://cdn.poehali.dev/projects/5a477859-d53c-46b0-b684-52e440488a08/files/142ed142-3ba9-4121-9da0-8ca24e6ac30a.jpg";
@@ -43,8 +45,10 @@ export default function Index() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [preorderSuccess, setPreorderSuccess] = useState(false);
+  const [preorderLoading, setPreorderLoading] = useState(false);
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
   const [contactSuccess, setContactSuccess] = useState(false);
+  const [contactLoading, setContactLoading] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -65,14 +69,32 @@ export default function Index() {
     setPhone("");
   };
 
-  const submitPreorder = (e: React.FormEvent) => {
+  const submitPreorder = async (e: React.FormEvent) => {
     e.preventDefault();
+    setPreorderLoading(true);
+    try {
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "preorder", fruit: preorderFruit, phone, email }),
+      });
+    } catch (err) { console.error(err); }
+    setPreorderLoading(false);
     setPreorderSuccess(true);
     setTimeout(() => setPreorderFruit(null), 2500);
   };
 
-  const submitContact = (e: React.FormEvent) => {
+  const submitContact = async (e: React.FormEvent) => {
     e.preventDefault();
+    setContactLoading(true);
+    try {
+      await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "contact", ...contactForm }),
+      });
+    } catch (err) { console.error(err); }
+    setContactLoading(false);
     setContactSuccess(true);
     setContactForm({ name: "", email: "", message: "" });
   };
@@ -312,10 +334,11 @@ export default function Index() {
                   />
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-2xl text-white font-black text-lg shadow-lg hover:scale-105 transition-transform"
+                    disabled={preorderLoading}
+                    className="w-full py-4 rounded-2xl text-white font-black text-lg shadow-lg hover:scale-105 transition-transform disabled:opacity-70 disabled:cursor-not-allowed"
                     style={{ background: "linear-gradient(135deg, var(--fruit-orange), var(--fruit-red))" }}
                   >
-                    Подписаться на уведомление 🍊
+                    {preorderLoading ? "Отправляем..." : "Подписаться на уведомление 🍊"}
                   </button>
                   <button
                     type="button"
@@ -562,10 +585,11 @@ export default function Index() {
                   />
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-2xl text-white font-black text-lg shadow-lg hover:scale-105 transition-transform"
+                    disabled={contactLoading}
+                    className="w-full py-4 rounded-2xl text-white font-black text-lg shadow-lg hover:scale-105 transition-transform disabled:opacity-70 disabled:cursor-not-allowed"
                     style={{ background: "linear-gradient(135deg, var(--fruit-green), #66BB6A)" }}
                   >
-                    Отправить сообщение 🌿
+                    {contactLoading ? "Отправляем..." : "Отправить сообщение 🌿"}
                   </button>
                 </form>
               ) : (
