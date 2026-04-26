@@ -22,9 +22,12 @@ export default function NavBar({ activeSection, menuOpen, setMenuOpen, scrollTo 
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         <button onClick={() => scrollTo("home")} className="flex items-center gap-2 group">
           <span className="text-3xl animate-float inline-block">🍊</span>
-          <span className="font-caveat text-2xl font-bold" style={{ color: "var(--fruit-orange)" }}>
-            ФруктоРай
-          </span>
+          <div className="flex flex-col items-start">
+            <span className="font-caveat text-2xl font-bold leading-tight" style={{ color: "var(--fruit-orange)" }}>
+              ФруктоРай
+            </span>
+            <span className="text-xs text-gray-400 font-medium leading-tight">Махсуджонов Амон Абдусамиевич</span>
+          </div>
         </button>
 
         <nav className="hidden md:flex gap-6">

@@ -127,6 +127,7 @@ export default function ReviewsContacts({
           <div className="grid md:grid-cols-2 gap-12">
             <div className="flex flex-col gap-6">
               {[
+                { icon: "User", label: "Владелец", value: "Махсуджонов Амон Абдусамиевич" },
                 { icon: "Phone", label: "Телефон", value: "8 (902) 813-34-45" },
                 { icon: "Mail", label: "Email", value: "amonmahsydjonovrabsis@gmail.com" },
                 { icon: "MapPin", label: "Адрес", value: "Заводоуковск — Упорово" },
