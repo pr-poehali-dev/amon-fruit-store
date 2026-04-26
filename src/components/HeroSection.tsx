@@ -1,17 +1,20 @@
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 const API_URL = "https://functions.poehali.dev/be2e714c-e9cd-4477-984c-c6d51fe7cb86";
+const PRODUCTS_URL = "https://functions.poehali.dev/7c9365a7-e017-4248-a4f3-8c5fc25258a3";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/5a477859-d53c-46b0-b684-52e440488a08/files/af7270f1-42c2-439a-99e0-d2332f70126d.jpg";
 
-const CATALOG = [
-  { emoji: "🥭", name: "Манго Альфонсо", origin: "Индия", price: "320 ₽/кг", season: "Июнь–Август", tag: "Сезонный" },
-  { emoji: "🍓", name: "Клубника Эльсанта", origin: "Краснодар", price: "280 ₽/кг", season: "Май–Июль", tag: "Хит" },
-  { emoji: "🍑", name: "Персик Инка", origin: "Узбекистан", price: "240 ₽/кг", season: "Июль–Сентябрь", tag: "Скоро" },
-  { emoji: "🍇", name: "Виноград Мускат", origin: "Армения", price: "380 ₽/кг", season: "Август–Октябрь", tag: "Скоро" },
-  { emoji: "🍍", name: "Ананас Голд", origin: "Коста-Рика", price: "290 ₽/шт", season: "Круглый год", tag: "Есть" },
-  { emoji: "🥝", name: "Киви Хейворд", origin: "Новая Зеландия", price: "180 ₽/кг", season: "Октябрь–Май", tag: "Есть" },
-];
+interface Product {
+  id: number;
+  emoji: string;
+  name: string;
+  origin: string;
+  price: string;
+  season: string;
+  tag: string;
+}
 
 const TAG_COLORS: Record<string, string> = {
   "Сезонный": "bg-orange-100 text-orange-700",
@@ -49,6 +52,14 @@ export default function HeroSection({
   preorderLoading,
   setPreorderLoading,
 }: HeroSectionProps) {
+  const [catalog, setCatalog] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch(PRODUCTS_URL)
+      .then((r) => r.json())
+      .then((d) => setCatalog(d.products || []));
+  }, []);
+
   const handlePreorder = (fruitName: string) => {
     setPreorderFruit(fruitName);
     setPreorderSuccess(false);
@@ -175,7 +186,7 @@ export default function HeroSection({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CATALOG.map((item) => (
+            {catalog.map((item) => (
               <div
                 key={item.name}
                 className="fruit-card bg-white border-2 border-orange-50 rounded-3xl p-6 flex flex-col gap-4 shadow-md"
