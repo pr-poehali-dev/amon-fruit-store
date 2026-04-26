@@ -125,14 +125,23 @@ export default function Index() {
             ))}
           </nav>
 
-          <button
-            onClick={() => scrollTo("catalog")}
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-white text-sm font-bold shadow-lg transition-transform hover:scale-105"
-            style={{ background: "linear-gradient(135deg, var(--fruit-orange), var(--fruit-red))" }}
-          >
-            <Icon name="ShoppingBasket" size={16} />
-            Заказать
-          </button>
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="tel:+79028133445"
+              className="flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-orange-700 transition-colors"
+            >
+              <Icon name="Phone" size={16} />
+              8 (902) 813-34-45
+            </a>
+            <button
+              onClick={() => scrollTo("catalog")}
+              className="flex items-center gap-2 px-4 py-2 rounded-full text-white text-sm font-bold shadow-lg transition-transform hover:scale-105"
+              style={{ background: "linear-gradient(135deg, var(--fruit-orange), var(--fruit-red))" }}
+            >
+              <Icon name="ShoppingBasket" size={16} />
+              Заказать
+            </button>
+          </div>
 
           <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? "X" : "Menu"} size={24} className="text-gray-700" />
@@ -150,6 +159,13 @@ export default function Index() {
                 {l.label}
               </button>
             ))}
+            <a
+              href="tel:+79028133445"
+              className="flex items-center gap-2 py-2 font-bold text-orange-600"
+            >
+              <Icon name="Phone" size={16} />
+              8 (902) 813-34-45
+            </a>
           </div>
         )}
       </header>
