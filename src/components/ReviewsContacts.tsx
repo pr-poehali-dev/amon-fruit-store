@@ -128,7 +128,7 @@ export default function ReviewsContacts({
             <div className="flex flex-col gap-6">
               {[
                 { icon: "Phone", label: "Телефон", value: "8 (902) 813-34-45" },
-                { icon: "Mail", label: "Email", value: "hello@frukto-ray.ru" },
+                { icon: "Mail", label: "Email", value: "amonmahsydjonovrabsis@gmail.com" },
                 { icon: "MapPin", label: "Адрес", value: "Москва, ул. Садовая, 12" },
                 { icon: "Clock", label: "Режим работы", value: "Пн–Вс: 8:00 – 22:00" },
               ].map((item) => (
