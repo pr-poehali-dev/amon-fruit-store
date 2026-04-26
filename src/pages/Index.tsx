@@ -442,7 +442,7 @@ export default function Index() {
                 { icon: "Zap", title: "Доставка по Заводоуковску", desc: "Привезём в течение дня", price: "150 ₽" },
                 { icon: "Truck", title: "Доставка в Упорово", desc: "Доставка в оговорённый день", price: "250 ₽" },
                 { icon: "Package", title: "Бесплатная доставка", desc: "При заказе от 2 000 ₽", price: "0 ₽" },
-                { icon: "ShoppingBag", title: "Самовывоз", desc: "Заберите сами — мы подготовим заказ к нужному времени", price: "Бесплатно" },
+                { icon: "ShoppingBag", title: "Самовывоз", desc: "Упорово, ул. Чивилёва, 1 — заберите сами в удобное время", price: "Бесплатно" },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-4 p-5 rounded-2xl border-2 border-orange-100 bg-orange-50 hover:border-orange-300 transition-colors">
                   <div
