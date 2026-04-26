@@ -438,8 +438,21 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="grid grid-cols-1 gap-4">
+              <div className="flex items-start gap-4 p-5 rounded-2xl border-2 border-orange-100 bg-orange-50 hover:border-orange-300 transition-colors">
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: "linear-gradient(135deg, var(--fruit-orange), var(--fruit-yellow))" }}>
+                  <Icon name="Zap" size={20} className="text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-black text-gray-800">Доставка по Заводоуковску</h3>
+                  <p className="text-sm text-gray-500 mt-1">
+                    Привезём в течение дня. Адрес самовывоза — по звонку:{" "}
+                    <a href="tel:+79028133445" className="text-orange-600 font-bold hover:underline">8 (902) 813-34-45</a>
+                  </p>
+                </div>
+                <span className="font-black text-orange-600 whitespace-nowrap">150 ₽</span>
+              </div>
+
               {[
-                { icon: "Zap", title: "Доставка по Заводоуковску", desc: "Привезём в течение дня. Адрес самовывоза — по звонку: 8 (902) 813-34-45", price: "150 ₽" },
                 { icon: "Truck", title: "Доставка в Упорово", desc: "Доставка в оговорённый день", price: "250 ₽" },
                 { icon: "Package", title: "Бесплатная доставка", desc: "При заказе от 2 000 ₽", price: "0 ₽" },
                 { icon: "ShoppingBag", title: "Самовывоз", desc: "Упорово, ул. Чивилёва, 1 — заберите сами в удобное время", price: "Бесплатно" },
