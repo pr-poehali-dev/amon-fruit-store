@@ -411,24 +411,38 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-4">
-              <Icon name="Truck" size={14} /> Доставка
+              <Icon name="Truck" size={14} /> Доставка и самовывоз
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4">
               Быстро и{" "}
               <span className="gradient-text">свежо</span>
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
-              Доставляем фрукты в специальных охлаждаемых боксах, чтобы сохранить свежесть и аромат.
+              Доставляем по Заводоуковску и Упорово. Также можно забрать самовывозом в удобное время.
             </p>
+          </div>
+
+          {/* Зона покрытия */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {[
+              { icon: "MapPin", label: "Заводоуковск", color: "bg-orange-100 text-orange-700 border-orange-200" },
+              { icon: "MapPin", label: "Упорово", color: "bg-orange-100 text-orange-700 border-orange-200" },
+              { icon: "ShoppingBag", label: "Самовывоз", color: "bg-green-100 text-green-700 border-green-200" },
+            ].map((z) => (
+              <div key={z.label} className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 font-bold text-sm ${z.color}`}>
+                <Icon name={z.icon} size={15} />
+                {z.label}
+              </div>
+            ))}
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="grid grid-cols-1 gap-4">
               {[
-                { icon: "Zap", title: "Экспресс-доставка", desc: "В течение 4 часов по городу", price: "299 ₽" },
-                { icon: "Clock", title: "Стандартная доставка", desc: "На следующий день, с 9:00 до 21:00", price: "150 ₽" },
+                { icon: "Zap", title: "Доставка по Заводоуковску", desc: "Привезём в течение дня", price: "150 ₽" },
+                { icon: "Truck", title: "Доставка в Упорово", desc: "Доставка в оговорённый день", price: "250 ₽" },
                 { icon: "Package", title: "Бесплатная доставка", desc: "При заказе от 2 000 ₽", price: "0 ₽" },
-                { icon: "RefreshCw", title: "Регулярная подписка", desc: "Еженедельная доставка со скидкой 15%", price: "По тарифу" },
+                { icon: "ShoppingBag", title: "Самовывоз", desc: "Заберите сами — мы подготовим заказ к нужному времени", price: "Бесплатно" },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-4 p-5 rounded-2xl border-2 border-orange-100 bg-orange-50 hover:border-orange-300 transition-colors">
                   <div
